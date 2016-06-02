@@ -85,7 +85,7 @@ all: px4fmu-v2_default
 # rest are arguments to pass to the makefile generated
 # by cmake in the subdirectory
 ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-j ?= 4
+j ?= 1
 
 NINJA_BUILD := $(shell ninja --version 2>/dev/null)
 ifdef NINJA_BUILD
@@ -151,6 +151,9 @@ px4fmu-v4_default:
 
 px4-stm32f4discovery_default:
 	$(call cmake-build,nuttx_px4-stm32f4discovery_default)
+
+px4-stm32f4discovery_testuavcan:
+	$(call cmake-build,nuttx_px4-stm32f4discovery_testuavcan)
 
 px4fmu-v2_ekf2:
 	$(call cmake-build,nuttx_px4fmu-v2_ekf2)
