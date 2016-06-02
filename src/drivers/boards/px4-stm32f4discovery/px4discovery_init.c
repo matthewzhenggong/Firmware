@@ -157,5 +157,7 @@ __EXPORT int nsh_archinitialize(void)
 		       (hrt_callout)stm32_serial_dma_poll,
 		       NULL);
 
+        drv_led_start();
+
 	return OK;
 }
