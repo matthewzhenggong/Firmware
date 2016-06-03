@@ -32,7 +32,7 @@
  ****************************************************************************/
 
 /**
- * @file px4fmu_usb.c
+ * @file px4discovery_usb.c
  *
  * Board-specific USB functions.
  */
@@ -71,7 +71,7 @@
  * Name: stm32_usbinitialize
  *
  * Description:
- *   Called to setup USB-related GPIO pins for the PX4FMU board.
+ *   Called to setup USB-related GPIO pins for the PX4-STM32F4Discovery board.
  *
  ************************************************************************************/
 

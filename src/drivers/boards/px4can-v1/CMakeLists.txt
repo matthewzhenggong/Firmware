@@ -36,12 +36,9 @@ px4_add_module(
 		-Os
 	SRCS
 		../common/board_name.c
-		px4can_can.c
-		px4can2_init.c
-		px4can_timer_config.c
-		px4can_spi.c
+		px4can_init.c
 		px4can_usb.c
-		px4can2_led.c
+		px4can_led.c
 	DEPENDS
 		platforms__common
 	)

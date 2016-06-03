@@ -85,7 +85,7 @@ all: px4fmu-v2_default
 # rest are arguments to pass to the makefile generated
 # by cmake in the subdirectory
 ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-j ?= 1
+j ?= 4
 
 NINJA_BUILD := $(shell ninja --version 2>/dev/null)
 ifdef NINJA_BUILD

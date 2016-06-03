@@ -32,9 +32,9 @@
  ****************************************************************************/
 
 /**
- * @file px4fmu2_led.c
+ * @file px4discovery_led.c
  *
- * PX4FMU LED backend.
+ * PX4-stm32f4discovery LED backend.
  */
 
 #include <px4_config.h>
@@ -65,32 +65,95 @@ __EXPORT void led_init()
 	/* Configure LED1 GPIO for output */
 
 	px4_arch_configgpio(GPIO_LED1);
+	px4_arch_configgpio(GPIO_LED2);
+	px4_arch_configgpio(GPIO_LED3);
+	px4_arch_configgpio(GPIO_LED4);
 }
 
 __EXPORT void led_on(int led)
 {
-	if (led == 1) {
+	switch (led) {
+        case 1:
 		/* Pull down to switch on */
 		px4_arch_gpiowrite(GPIO_LED1, false);
+                break;
+        case 2:
+		/* Pull down to switch on */
+		px4_arch_gpiowrite(GPIO_LED2, false);
+                break;
+        case 3:
+		/* Pull down to switch on */
+		px4_arch_gpiowrite(GPIO_LED3, false);
+                break;
+        case 4:
+		/* Pull down to switch on */
+		px4_arch_gpiowrite(GPIO_LED4, false);
+                break;
+        default: 
+                break;
 	}
 }
 
 __EXPORT void led_off(int led)
 {
-	if (led == 1) {
-		/* Pull up to switch off */
+	switch (led) {
+        case 1:
+		/* Pull down to switch off */
 		px4_arch_gpiowrite(GPIO_LED1, true);
+                break;
+        case 2:
+		/* Pull down to switch off */
+		px4_arch_gpiowrite(GPIO_LED2, true);
+                break;
+        case 3:
+		/* Pull down to switch off */
+		px4_arch_gpiowrite(GPIO_LED3, true);
+                break;
+        case 4:
+		/* Pull down to switch off */
+		px4_arch_gpiowrite(GPIO_LED4, true);
+                break;
+        default: 
+                break;
 	}
 }
 
 __EXPORT void led_toggle(int led)
 {
-	if (led == 1) {
+	switch (led) {
+        case 1:
 		if (px4_arch_gpioread(GPIO_LED1)) {
 			px4_arch_gpiowrite(GPIO_LED1, false);
 
 		} else {
 			px4_arch_gpiowrite(GPIO_LED1, true);
 		}
+		break;
+        case 2:
+		if (px4_arch_gpioread(GPIO_LED2)) {
+			px4_arch_gpiowrite(GPIO_LED2, false);
+
+		} else {
+			px4_arch_gpiowrite(GPIO_LED2, true);
+		}
+		break;
+        case 3:
+		if (px4_arch_gpioread(GPIO_LED3)) {
+			px4_arch_gpiowrite(GPIO_LED3, false);
+
+		} else {
+			px4_arch_gpiowrite(GPIO_LED3, true);
+		}
+		break;
+        case 4:
+		if (px4_arch_gpioread(GPIO_LED4)) {
+			px4_arch_gpiowrite(GPIO_LED4, false);
+
+		} else {
+			px4_arch_gpiowrite(GPIO_LED4, true);
+		}
+		break;
+	default:
+		break;
 	}
 }
