@@ -2,6 +2,8 @@ include(nuttx/px4_impl_nuttx)
 
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/toolchains/Toolchain-arm-none-eabi.cmake)
 
+set(config_uavcan_num_ifaces 2)
+
 set(config_module_list
 	#
 	# Board support modules
@@ -9,7 +11,7 @@ set(config_module_list
 	drivers/device
 	drivers/stm32
 	drivers/led
-	drivers/boards/px4-stm32f4discovery
+	drivers/boards/px4can-v1
 
 	#
 	# System commands
@@ -31,6 +33,7 @@ set(config_module_list
 	modules/systemlib
 	modules/systemlib/mixer
 	modules/uORB
+	modules/uavcan
 
 	#
 	# Libraries
@@ -78,6 +81,11 @@ set(config_module_list
 set(config_extra_builtin_cmds
 	serdis
 	sercon
+	)
+
+set(config_extra_libs
+	uavcan
+	uavcan_stm32_driver
 	)
 
 add_custom_target(sercon)

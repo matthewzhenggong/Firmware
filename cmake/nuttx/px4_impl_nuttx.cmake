@@ -510,6 +510,14 @@ function(px4_os_add_flags)
 			-mthumb
 			-march=armv7-m
 			)
+	elseif (${BOARD} STREQUAL "px4can-v1")
+		set(cpu_flags
+			-mcpu=cortex-m4
+			-mthumb
+			-march=armv7e-m
+			-mfpu=fpv4-sp-d16
+			-mfloat-abi=hard
+			)
 	endif()
 	list(APPEND c_flags ${cpu_flags})
 	list(APPEND cxx_flags ${cpu_flags})

@@ -152,8 +152,11 @@ px4fmu-v4_default:
 px4-stm32f4discovery_default:
 	$(call cmake-build,nuttx_px4-stm32f4discovery_default)
 
-px4-stm32f4discovery_testuavcan:
-	$(call cmake-build,nuttx_px4-stm32f4discovery_testuavcan)
+px4fmu-v2_testuavcan:
+	$(call cmake-build,nuttx_px4fmu-v2_testuavcan)
+
+px4can-v1_test:
+	$(call cmake-build,nuttx_px4can-v1_test)
 
 px4fmu-v2_ekf2:
 	$(call cmake-build,nuttx_px4fmu-v2_ekf2)

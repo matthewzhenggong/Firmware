@@ -31,14 +31,18 @@
 #
 ############################################################################
 px4_add_module(
-	MODULE drivers__boards__px4-stm32f4discovery
+	MODULE drivers__boards__px4can-v1
+	COMPILE_FLAGS
+		-Os
 	SRCS
 		../common/board_name.c
-		px4discovery_init.c
-		px4discovery_usb.c
-		px4discovery_led.c
-		px4discovery_can.c
+		px4can_can.c
+		px4can2_init.c
+		px4can_timer_config.c
+		px4can_spi.c
+		px4can_usb.c
+		px4can2_led.c
 	DEPENDS
 		platforms__common
 	)
-# vim: set noet ft=cmake fenc=utf-8 ff=unix : 
+# vim: set noet ft=cmake fenc=utf-8 ff=unix :
