@@ -41,3 +41,6 @@
 [submodule "mavlink/include/mavlink/v2.0"]
 	path = mavlink/include/mavlink/v2.0
 	url = git://github.com/mavlink/c_library.git
+[submodule "src/lib/Navio2/Navio2"]
+	path = src/lib/Navio2/Navio2
+	url = /media/sf_D_DRIVE/source/Navio2

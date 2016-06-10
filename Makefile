@@ -205,6 +205,9 @@ posix_rpi2_default:
 posix_rpi2_release:
 	$(call cmake-build,$@)
 
+posix_rpi2_navio2:
+	$(call cmake-build,$@)
+
 posix_bebop_default:
 	$(call cmake-build,$@)
 
